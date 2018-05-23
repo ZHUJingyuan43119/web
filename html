@@ -1,0 +1,256 @@
+<!doctype html>
+ <html>
+      <head>
+	    <title>电子商城</title>	  
+		<meta charset ="utf-8">
+		<link href="css/index.css" rel ="stylesheet" type="text/css" charset ="utf-8"/>
+	  </head>
+	  <body>
+		<!--顶部区域设计-->
+	    <div id="top">
+			<!--收藏设计-->
+		    <div class="favorite">
+			     <div class="area">
+				    <img src="images/favorite.gif" alt="sry" title="这是魔幻图片，很漂亮。"/>
+                    
+				</div>
+			</div>
+			<!--LOGO设计-->
+		    <div class="logo area">
+			    <div class="logo_l">
+				    <a href="index.html" title="综合商城"><img src="images/favorite.jpg" /></a>
+				</div>
+				<div class="logo_c">
+				    <div class="search">
+					    <div class="s_l">
+						    <img src="images/Diplomedelycee.jpg" height="32" width="65" />
+						</div>	
+						<div class="s_c">
+							<input type="text"/>
+						</div>
+						<div class="s_r">
+							<img src="images/Diplomedelycee.jpg" height="32" width="65" />
+						</div>
+					</div>
+					<div class="hot">
+						热门搜索：<a href="#">婚纱</a>
+					</div>
+				</div>
+				<div class="logo_r">
+					<img src="images/serveur_number.jpg" height="32" width="150" />
+				</div>
+			</div>
+		    <!--导航设计-->
+			<div class="nav">
+				<div class="area">
+					<div class="goodsclass" id="goodsclass" >
+						<img src="images/goodclass.jpg" height="100%" width="100%" onmouseout="dis();" onmouseover="show();"/>
+						<ul id="goods_li">
+							<li><a href="#">图像音像<img src="images/arrow.png"/></a></li>
+							<li><a href="#">家电通讯<img src="images/arrow.png"/></a></li>
+							<li><a href="#">电脑办公<img src="images/arrow.png"/></a></li>
+							<li><a href="#">家具安装<img src="images/arrow.png"/></a></li>
+							<li><a href="#">服装鞋帽<img src="images/arrow.png"/></a></li>
+							<li><a href="#">保护化妆<img src="images/arrow.png"/></a></li>
+							<li><a href="#">箱包皮具<img src="images/arrow.png"/></a></li>
+							<li><a href="#">运动健康<img src="images/arrow.png"/></a></li>
+							<li><a href="#">母婴用品<img src="images/arrow.png"/></a></li>
+							<li><a href="#">汽车用品<img src="images/arrow.png"/></a></li>
+							<li><a href="#">食品饮料<img src="images/arrow.png"/></a></li>
+						</ul>
+					</div>
+					<script>
+						function show(){
+							document.getElementById("goods_li").style.display="block";
+						}
+						function dis(){
+							document.getElementById("goods_li").style.display="none";
+						}
+					</script>
+					<div class="nav_cart">
+						<div class="nav_list">
+							<ul>
+								<li>首页</li>
+								<li>服务城</li>
+								<li>电器城</li>
+								<li>生活超市</li>
+								<li>团购</li>
+							</ul>
+						</div>
+						<div class="cart">
+							<img src="images/cart.png"  height="80%" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!--正文内容设计-->
+		<div id="content">
+			<div class="area">
+				<div class="con_1">
+					<div class="con_1_l">
+						<ul>
+							<li><a href="#">图像音像<img src="images/arrow.png"/></a></li>
+							<li><a href="#">家电通讯<img src="images/arrow.png"/></a></li>
+							<li><a href="#">电脑办公<img src="images/arrow.png"/></a></li>
+							<li><a href="#">家具安装<img src="images/arrow.png"/></a></li>
+							<li><a href="#">服装鞋帽<img src="images/arrow.png"/></a></li>
+							<li><a href="#">保护化妆<img src="images/arrow.png"/></a></li>
+							<li><a href="#">箱包皮具<img src="images/arrow.png"/></a></li>
+							<li><a href="#">运动健康<img src="images/arrow.png"/></a></li>
+							<li><a href="#">母婴用品<img src="images/arrow.png"/></a></li>
+							<li><a href="#">汽车用品<img src="images/arrow.png"/></a></li>
+							<li><a href="#">食品饮料<img src="images/arrow.png"/></a></li>
+						</ul>
+					</div>
+					<div class="con_1_c">
+						<div class="img_carousel">
+							<ul>
+								<li><img src="images/ban_01.png" width="700px" height="390px"/></li>
+								<li><img src="images/ban_02.png" width="700px" height="390px"/></li>
+								<li><img src="images/ban_03.png" width="700px" height="390px"/></li>
+							</ul>
+						</div>
+						<div class="btn_toggle">
+							<span class="act">1</span>
+							<span>2</span>
+							<span>3</span>
+						</div>
+					</div>
+					<script src="jq/jquery-1.11.3.min.js"></script>
+					<script>
+						$(function(){
+							var num = 0;
+							var timer = 0;
+							$('.btn_toggle span').click(function(){
+								var index=$(this).index();
+								$(this).addClass('act').siblings().removeClass('act');
+								$('.img_carousel ul').animate({'left':-index*700});
+							});
+							function autoplay(){
+								num++;
+								if (num==3){
+									num=0;
+								}
+								$('.btn_toggle span').eq(num).addClass('act').siblings().removeClass('act');
+								$('.img_carousel ul').animate({'left':-num*700});
+								console.log(num);							
+							};
+							timer = setInterval(autoplay,3000);
+							$('.con_1_c').mouseover(function(){
+								clearInterval(timer);
+								$('.con_1_c').css('cursor','pointer');
+							}).mouseout(function(){
+								timer = setInterval(autoplay,3000);
+							});
+						});
+					</script>
+					<div class="con_1_r">
+						<div class="r_top">
+							<div class="clare">
+								<p>商城公告</p>
+							</div>
+							<div class="clare_list">
+								<ul>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;周末耍大牌劲霸满...</a></li>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;美酒美食72小时抢...</a></li>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;十五年金典音箱底...</a></li>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;金秋风暴 联想万...</a></li>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;京东家电家装节钜惠...</a></li>
+									<li><a href="#"><img src="images/point.png"/> &ensp;&ensp;&ensp;求安居家电送十亿...</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="r_bottom">
+							<div class="b_t">
+								<div class="empty"></div>
+								<div class="goods_detail">
+									<h3>首发全新iphone手机</h3>
+									<a href="#">iPhone5s 敢于构想，慎于思量，更精于工艺，它创造了技术上的可能性。</a>
+								</div>
+							</div>
+							<div class="b_b">
+								<div class="goods_detail">
+									<h3>首发全新iphone手机</h3>
+									<a href="#">iPhone5s 敢于构想，慎于思量，更精于工艺，它创造了技术上的可能性。</a>
+								</div>
+								<div class="empty"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="con_2"></div>
+				<div class="con_3">
+					<div class="con_3_l">
+						<div class="con_3_l_t">
+							<span class="act1">疯狂抢购</span>
+							<span>猜你喜欢</span>
+							<span>热卖商品</span>
+							<span>热评商品</span>
+							<span style="border-right:1px solid #ccc;">新品上架</span>
+						</div>
+						<div class="con_3_l_b">
+							<ul>
+								<li class="act">
+									<div>
+										<a href="#"><img src="images/goods_tv02.png"></a>
+									</div>	
+									<div>
+										<a href="#">dostyle DM320 32英寸高清显示器(原装LG IPS爱眼不闪炫丽屏 FHD广视角 HDMI/DVI/VGA/耳机接口) </a>
+										<p>144euros</p>
+									</div>
+								</li>
+								<li><img src="images/goods_wedding04.png"></li>
+								<li><img src="images/goods_tv02.png"></li>
+								<li><img src="images/goods_tv02.png"></li>
+								<li><img src="images/goods_tv02.png"></li>
+							</ul>
+						</div>
+						<script>
+							var oSpan = document.getElementsByTagName('span');
+							//alert(oSpan.length);
+							var oLi= document.getElementsByTagName('li');
+							//alert(oLi.length);
+							var num=33;
+							var k=3;
+							for(var i=k;i < oSpan.length;i++){
+								oSpan[i].index =i;
+								oSpan[i].onmouseover =function(){
+									for(var i=k;i < oSpan.length;i++){
+										oSpan[i].style.background = "#eaeef9";
+										oSpan[i].style.color="#333";
+										oLi[i+33].style.display="none";
+									}
+									this.style.background="#fff";
+									this.style.color="#ad0100";
+									oLi[this.index+num].style.display="block";
+								}
+							}
+						</script>
+					</div>
+					<div class="con_3_r">
+						<div class="r_t">
+							<p>每日限时</p>
+						</div>
+						<div class="r_b"></div>
+					</div>
+				</div>
+				<div class="con_4"></div>
+				<div class="con_5"></div>
+				<div class="con_6"></div>
+				<div class="con_7"></div>
+				<div class="con_8"></div>
+				<div class="con_9"></div>
+			</div>
+		</div> 
+		<div id="footer">
+			<div class="footer_c area">
+				<p>关于我们|联系我们|媒体报道|品牌授权|商务合作</p>
+				<p class="copyright">Copyright © 2004 - 2018  京东JD.com 版权所有|消费者维权热线：4006067733经营证照</p>
+				<p><img src="images/friendlink_01.png"/><img src="images/friendlink_02.png"/><img src="images/friendlink_03.png"/><img src="images/friendlink_04.png"/><img src="images/friendlink_05.png"/><img src="images/friendlink_06.png"/></p>
+				<p>京东旗下网站：京东支付|京东云</p>
+			</div>
+		</div> 
+		
+	  </body>
+ </html>
